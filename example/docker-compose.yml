@@ -1,0 +1,14 @@
+db:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=password
+app:
+  image: journal
+  environment:
+    - DB_USER=root
+    - DB_PASSWORD=password
+    - DB_HOST=localhost
+  ports:
+    - "8080:8080"
+  links:
+    - db:localhost
